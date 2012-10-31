@@ -1,0 +1,176 @@
+body {
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    padding: 5px;
+}
+table{
+	width: 98%;
+	border-width: 1px;
+}
+
+* {
+  font-size: 1em;
+}
+
+.nav_section {
+  padding: 1em;
+}
+
+.nav_label {
+  font-weight: bold;
+  margin: 1em;
+  font-size: 1.2em;
+}
+
+li {
+  margin: 0.5em;
+  padding: 0em;
+  font-size: 1.2em;
+}
+
+.heading {
+  background: #657383;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: left;
+}
+
+h2 {
+  margin:  1em;
+  font-size:  1.6em;
+}
+
+h3 {
+  margin: 0em;
+  margin: 0.2em;
+  font-size:  1.6em;
+}
+
+h4 {
+  font-size:  18px;
+}
+
+.ddihead {
+}
+
+.ddiextl {
+}
+
+.ddiemph {
+}
+
+.ddihi {
+}
+
+.table_heading {
+  border-style: solid;
+  border-width: 1px;
+  font-weight: bold;
+  background-color: #fdfdfd;
+}
+
+.cats {
+  border-collapse: collapse;  
+  margin: 1em;
+  font-size: 0.8em;
+}
+
+th.cat_lbl {
+  background-color: #657383;
+  border-style: solid;
+  border-width: 1px;
+    border-color:   #657383;
+  padding: 3px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+th.cat_val {
+  background-color: #657383;
+  border-color:   #657383;
+  border-style: solid;
+  border-width: 1px;
+  padding: 3px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+td.cat_lbl {
+    border-color:   #657383;
+  border-style: solid;
+  border-width: 1px;
+  padding: 3px;
+  font-size: 1.2em;
+}
+
+td.cat_val {
+  border-style: solid;
+    border-color:   #657383;
+  border-width: 1px;
+  padding: 3px;
+  font-size: 1.2em;
+}
+
+.major_section {
+  border-style: solid;
+  border-width: 1px;
+  border-color:   #657383;
+  border-radius: 1em;
+  margin: 1em;
+  padding: 0em;
+}
+
+.group {
+  margin: 1em;
+}
+
+.data {
+  border-collapse: collapse;  
+  margin: 1em;
+}
+
+.data .label {
+  font-size: 1.2em;
+  border-style: solid;
+  border-width: 1px;
+  margin: 1em;
+  padding: 3px;
+}
+
+.data .value {
+  font-size: 1.2em;
+  border-style: solid;
+    border-color:   #657383;
+  border-width: 1px;
+  margin: 1em;
+  padding: 3px;
+  color: #000;
+}
+
+.mpc_logo {
+  padding: 3px;
+  margin: 0.5em;
+  background-color: #B31B1B;
+  border-bottom: solid;
+}
+
+.mpc_logo em {
+  font-family: Copperplate, "Copperplate Gothic Bold", 
+    "Copperplate Gothic Light", "Arial Black", Helvetica, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 3em;
+  color: #002779;
+  background-color: #EEE1B4;
+  border: solid;
+  border-width: thin;
+  margin-right: 0.1em;
+}
+
+.mpc_logo .name {
+  font-family: Candara, Verdana, Helvetica, sans-serif;
+  font-size: 2em;
+  color: #ffffff;
+}

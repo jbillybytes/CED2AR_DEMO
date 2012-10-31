@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model
+	This element tells the DispatcherServlet that it shouldn’t expect controllers to be 
+	configured in XML, rather – it will get its components via another method.
+	This method can be found further down the file: <context:component-scan -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory 
+	A ViewResolver is another Spring interface, which is responsible for directing 
+	a client to the right view in the application.
+	In essence, the InternalResourceViewResolver receives the result of the controller method 
+	(the String returned) – and is then in charge of mapping this result to an actual view.-->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<!--  tells the Spring container where it can find components. 
+	In this case, the directive tells Spring to look for components in the com.duckranger.goodproject package. Spring will scan this 
+	package and will register as a component any class it finds annotated with the relevant annotations (e.g. @Controller). 
+	By default, Spring will also scan sub-packages)-->
+	<context:component-scan base-package="edu.cornell.ncrn" />
+	
+	
+	
+</beans:beans>
