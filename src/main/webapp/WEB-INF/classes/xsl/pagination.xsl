@@ -33,8 +33,7 @@
         <xsl:choose>
             <xsl:when test="number($Page)-1 &gt;= 0">
                 <A>
-                    <xsl:attribute name="href">test.html?page=<xsl:value-of select="number($Page)-1"/>&amp;pagesize=<xsl:value-of select="$PageSize"/>
-                    </xsl:attribute>  &lt;&lt;Prev
+                    <xsl:attribute name="onclick">query('<xsl:value-of select="number($Page)-1"/>') </xsl:attribute>  &lt;&lt;Prev
                 </A>
             </xsl:when>
             <xsl:otherwise>
@@ -50,8 +49,7 @@
         <xsl:choose>
             <xsl:when test="number($Page)+1 &lt; number($selectedRowCount)">
                 <A>
-                    <xsl:attribute name="href">test.html?page=<xsl:value-of select="number($Page)+1"/>&amp;pagesize=<xsl:value-of select="$PageSize"/>
-                    </xsl:attribute>  Next&gt;&gt;
+                    <xsl:attribute name="onclick">query('<xsl:value-of select="number($Page)+1"/>')</xsl:attribute>  Next&gt;&gt;
                 </A>
             </xsl:when>
             <xsl:otherwise>

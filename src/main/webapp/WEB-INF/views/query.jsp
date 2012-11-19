@@ -25,6 +25,7 @@ http://docs.oracle.com/javaee/5/tutorial/doc/bnakc.html
 <h4>Pick a query:</h4>
 	<select id="queries" name="queries" onchange="select()">
 <option value="">Select a query</option>
+<option value="let $ced2ar := collection('CED2AR') for $codebook in $ced2ar/codeBook  where $codebook/dataDscr/var[(starts-with(lower-case(@name), lower-case('a')))] return		<codeBook> { $codebook/docDscr }<dataDscr> {	for $var in $codebook/dataDscr/var where  (starts-with(lower-case($var/@name), lower-case('a')))  return $var } </dataDscr></codeBook>">Test Advanced Search Query</option>
 <option value="<codeBooks> { for $cedar in  collection('CED2AR') return <codeBook><docDscr>  <citation>   <titlStmt> <titl>  { $cedar/codeBook/docDscr/citation/titlStmt/titl } </titl></titlStmt></citation></docDscr><dataDscr> { $cedar/codeBook/dataDscr/var[position() <= 10]  }</dataDscr></codeBook> } </codeBooks>">First 10 variables across all data sources</option>
 <option value="<codeBooks> { for $cedar in  collection('CED2AR') where ($cedar/codeBook/dataDscr/var[ends-with(labl, 'War')]) return <codeBook><docDscr>  <citation>   <titlStmt> <titl>  { $cedar/codeBook/docDscr/citation/titlStmt/titl } </titl></titlStmt></citation></docDscr><dataDscr> { $cedar/codeBook/dataDscr/var[ends-with(labl, 'War')]  }</dataDscr></codeBook> } </codeBooks>">All variables with labels ending with: 'War'</option>
 <option value="<codeBooks> { for $cedar in  collection('CED2AR') where ($cedar/codeBook/dataDscr/var[@conf='true']) return <codeBook><docDscr>  <citation>   <titlStmt> <titl>  { $cedar/codeBook/docDscr/citation/titlStmt/titl } </titl></titlStmt></citation></docDscr><dataDscr> { $cedar/codeBook/dataDscr/var[@conf='true']  }</dataDscr></codeBook> } </codeBooks>">All confidential variables </option>
@@ -46,7 +47,7 @@ http://docs.oracle.com/javaee/5/tutorial/doc/bnakc.html
 	<textarea id="queryInput" name="queryInput"
 		style="width: 500px; height: 200px; vertical-align: top;"></textarea>
 	<br /><br />
-	<input id="submit" value="Submit" type="submit" onclick="query()" />
+	<input id="submit" value="Submit" type="submit" onclick="query('0')" />
 	<br /><br />
 	<div id="results" style="width: 925px"></div>
 
@@ -57,7 +58,7 @@ http://docs.oracle.com/javaee/5/tutorial/doc/bnakc.html
 			});
 		}
 		
-		function query() {
+		function query(currpage) {
 			jq(function() {
 				// Call a URL and pass two arguments
 				// Also pass a call back function
@@ -66,7 +67,7 @@ http://docs.oracle.com/javaee/5/tutorial/doc/bnakc.html
 				// You might find a warning in Firefox: Warning: Unexpected token in attribute selector: '!' 
 				// See http://bugs.jquery.com/ticket/7535
 				jq.post("/CED2AR_QueryDemo/query", {
-					xquery : jq("#queryInput").val()
+					xquery : jq("#queryInput").val(), paginate : 'true', page : currpage
 				}, function(data) {
 					// data contains the result
 					// Assign result span with id "results"

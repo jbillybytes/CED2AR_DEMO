@@ -27,13 +27,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-
 @Service
-public class QueryService {
-	private static final Logger logger = LoggerFactory.getLogger(QueryService.class);
-
-	public QueryService() {
-
+public class PaginatedService {
+	private static final Logger logger = LoggerFactory.getLogger(PaginatedService.class);
+	
+	public PaginatedService(){
+		
 	}
 
 	@Autowired
@@ -143,4 +142,5 @@ public class QueryService {
 		
 		return styledResponse;
 	}
+
 }

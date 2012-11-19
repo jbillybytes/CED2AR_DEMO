@@ -9,33 +9,33 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.cornell.ncrn.service.QueryService;
+import edu.cornell.ncrn.service.PaginatedService;
 
 @Controller
-public class QueryController {
-	private static final Logger logger = LoggerFactory.getLogger(QueryController.class);
+public class PaginatedController {
+	private static final Logger logger = LoggerFactory.getLogger(PaginatedController.class);
 
 	@Autowired
-	private QueryService queryService;
+	private PaginatedService paginatedService;
 
 	/**
 	 * Handles and retrieves the AJAX query page
 	 */
-	@RequestMapping(value = "/query", method = RequestMethod.GET)
+	@RequestMapping(value = "/paginated", method = RequestMethod.GET)
 	public String getAjaxAddPage() {
-		logger.debug("Received request to show query page");
+		logger.debug("Received request to show paginated page");
 
-		// This will resolve to /WEB-INF/views/query.jsp
-		return "query";
+		// This will resolve to /WEB-INF/views/paginated.jsp
+		return "paginated";
 	}
 
 	/**
 	 * Handles request for adding two numbers
 	 */
-	@RequestMapping(value = "/query", method = RequestMethod.POST)
+	@RequestMapping(value = "/paginated", method = RequestMethod.POST)
 	public @ResponseBody String query(@RequestParam(value="xquery", required=true) String xquery, @RequestParam(value="paginate", required=true) String paginate, @RequestParam(value="page", required=true) String page) {
 logger.info(paginate + " | " + page);
-		String response = queryService.getXML(xquery, paginate.toLowerCase().equals("false"), page);
+		String response = paginatedService.getXML(xquery, paginate.toLowerCase().equals("true"), page);
 
 		return response;
 	}
